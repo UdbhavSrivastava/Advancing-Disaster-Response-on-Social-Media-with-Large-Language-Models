@@ -1,0 +1,8 @@
+datasets
+evaluate
+load
+numpy
+os
+peft
+torch
+transformers==4.32.1
