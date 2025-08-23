@@ -6,40 +6,6 @@ The codebase is designed for reproducibility and ease of use, allowing you to de
 
 ***
 
-## Features
-
-* **Modular Architecture**: All core logic for data loading, modeling, and training is separated into reusable modules.
-* **Single Entry Point**: All experiments are run from a single `main.py` script, which simplifies the workflow.
-* **Configurable Experiments**: Hyperparameters, model choices, and task-specific settings are managed in YAML configuration files.
-* **Multi-Modality Support**: The framework supports tasks on text, images, and multimodal data.
-* **Extensible Design**: Easily add new tasks, models, or data sources by updating the configuration files or adding new modules to the `src/` directory.
-
-***
-
-## Project Structure
-
-The project is organized into a clean, hierarchical structure to separate concerns.
-
-Markdown
-
-# Multimodal Crisis Management Classification
-
-This project provides a unified and modular framework for training and evaluating machine learning models on crisis-related data. It supports various tasks, including text-only, image-only, and multimodal classification, by leveraging large language models (LLMs) like Llama and vision models like ResNet and ViT.
-
-The codebase is designed for reproducibility and ease of use, allowing you to define and run experiments with simple command-line arguments.
-
-***
-
-## Features
-
-* **Modular Architecture**: All core logic for data loading, modeling, and training is separated into reusable modules.
-* **Single Entry Point**: All experiments are run from a single `main.py` script, which simplifies the workflow.
-* **Configurable Experiments**: Hyperparameters, model choices, and task-specific settings are managed in YAML configuration files.
-* **Multi-Modality Support**: The framework supports tasks on text, images, and multimodal data.
-* **Extensible Design**: Easily add new tasks, models, or data sources by updating the configuration files or adding new modules to the `src/` directory.
-
-***
-
 ## Project Structure
 
 The project is organized into a clean, hierarchical structure to separate concerns.
@@ -56,9 +22,9 @@ The project is organized into a clean, hierarchical structure to separate concer
 │   │   ├── fusion_models.py
 │   │   └── modeling_llama.py
 │   ├── tasks/
-│   │   ├── run_image_tasks.py
-│   │   ├── run_multimodal_tasks.py
-│   │   └── run_text_tasks.py
+│   │   ├── image_tasks.py
+│   │   ├── multimodal_tasks.py
+│   │   └── text_tasks.py
 │   └── utils/
 │       └── metrics.py
 ├── .gitignore
@@ -107,3 +73,5 @@ The `--task` argument is required. Its value must match a task name defined in `
 ```bash
 # Example: Run the default text-only informative task
 python main.py --task text_informative
+
+
