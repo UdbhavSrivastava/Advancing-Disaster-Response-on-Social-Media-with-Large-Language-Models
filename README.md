@@ -10,6 +10,7 @@ The codebase is designed for reproducibility and ease of use, allowing you to de
 
 The project is organized into a clean, hierarchical structure to separate concerns.
 
+```text
 .
 ├── configs/
 │   ├── data.yaml
