@@ -88,6 +88,7 @@ python main.py --task text_informative
 This project relies on several key resources and open-source contributions. We extend our gratitude to the following:
 
 * **CrisisMMD Dataset**: https://crisisnlp.qcri.org/crisismmd
+* **Idrisi LMR Dataset**: https://github.com/rsuwaileh/IDRISI
 * **Hugging Face**: For the excellent `transformers` and `datasets` libraries that form the foundation of our modeling pipeline.
 * **Pre-trained Models**: We thank the creators of the pre-trained models used in this work, including:
     * **Llama** for the text-based models and embeddings. Specially LS-LLama - https://github.com/4AI/LS-LLaMA
