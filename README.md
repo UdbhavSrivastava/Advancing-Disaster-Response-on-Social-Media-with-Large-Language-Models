@@ -80,4 +80,16 @@ The `--task` argument is required. Its value must match a task name defined in `
 # Example: Run the default text-only informative task
 python main.py --task text_informative
 
+```
+***
 
+## Acknowledgments
+
+This project relies on several key resources and open-source contributions. We extend our gratitude to the following:
+
+* **CrisisMMD Dataset**: https://crisisnlp.qcri.org/crisismmd
+* **Hugging Face**: For the excellent `transformers` and `datasets` libraries that form the foundation of our modeling pipeline.
+* **Pre-trained Models**: We thank the creators of the pre-trained models used in this work, including:
+    * **Llama** for the text-based models and embeddings. Specially LS-LLama - https://github.com/4AI/LS-LLaMA
+    * **ResNet** for the image feature extraction models.
+    * **ViT** for the advanced vision transformer models.
