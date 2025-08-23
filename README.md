@@ -11,9 +11,13 @@ The codebase is designed for reproducibility and ease of use, allowing you to de
 The project is organized into a clean, hierarchical structure to separate concerns.
 
 .
-├── configs/                  # All configuration files
-├── data/                     # Raw data files
-├── src/                      # All reusable source code
+├── configs/
+│   ├── data.yaml
+│   ├── models.yaml
+│   └── training.yaml
+├── data/
+│   └── (raw data files from CrisisMMD_v2.0, LMR, etc.)
+├── src/
 │   ├── data/
 │   │   ├── base_dataloader.py
 │   │   └── text_preprocessing.py
@@ -22,16 +26,16 @@ The project is organized into a clean, hierarchical structure to separate concer
 │   │   ├── fusion_models.py
 │   │   └── modeling_llama.py
 │   ├── tasks/
-│   │   ├── image_tasks.py
-│   │   ├── multimodal_tasks.py
-│   │   └── text_tasks.py
+│   │   ├── run_image_tasks.py
+│   │   ├── run_multimodal_tasks.py
+│   │   └── run_text_tasks.py
 │   └── utils/
 │       └── metrics.py
 ├── .gitignore
-├── main.py                   # Main entry point for all tasks
-├── README.md                 # This file
+├── LICENSE
+├── main.py
+├── README.md
 └── requirements.txt
-
 ***
 
 ## Setup
