@@ -39,6 +39,7 @@ The project is organized into a clean, hierarchical structure to separate concer
 └── requirements.txt
 ***
 
+```
 ## Setup
 
 Follow these steps to set up the project locally.
