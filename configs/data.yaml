@@ -1,0 +1,182 @@
+# configs/data.yaml - Refined
+base_paths:
+  data_dir: "/path/to/your/texts"
+  images_dir: "/path/to/your/images"
+  lmr_base_dir: "/path/to/your/lmr/dataset"
+
+# Define common task attributes once
+task_templates:
+  informative:
+    data_path: "Informative/"
+    file_prefix: "task_informative_text_img_"
+    labels:
+      not_informative: 0
+      informative: 1
+  
+  disaster_type:
+    data_path: "Informative/"
+    file_prefix: "task_informative_text_img_"
+    labels:
+      Non-informative: 0
+      Earthquake: 1
+      Flood: 2
+      Hurricane: 3
+      Wildfire: 4
+  
+  humanitarian:
+    data_path: "Humanitarian/"
+    file_prefix: "task_humanitarian_text_img_"
+    labels:
+      not_humanitarian: 0
+      affected_individuals: 1
+      infrastructure_and_utility_damage: 2
+      other_relevant_information: 3
+      rescue_volunteering_or_donation_effort: 4
+      
+  damage:
+    data_path: "Damage/"
+    file_prefix: "task_damage_text_img_"
+    labels:
+      little_or_no_damage: 0
+      mild_damage: 1
+      severe_damage: 2
+
+  lmr_typebased:
+    data_path: "lmr_base_dir"
+    labels:
+      O: 0
+      B-CTRY: 1
+      L-CTRY: 2
+      U-CITY: 3
+      U-NBHD: 4
+      U-CTRY: 5
+      B-NPOI: 6
+      L-NPOI: 7
+      U-CNTY: 8
+      U-STAT: 9
+      U-DIST: 10
+      B-DIST: 11
+      L-DIST: 12
+      B-CITY: 13
+      I-CITY: 14
+      L-CITY: 15
+      B-HPOI: 16
+      L-HPOI: 17
+      B-ST: 18
+      L-ST: 19
+      U-ISL: 20
+      U-NPOI: 21
+      U-CONT: 22
+      B-ISL: 23
+      L-ISL: 24
+      I-HPOI: 25
+      B-CNTY: 26
+      L-CNTY: 27
+      B-NBHD: 28
+      L-NBHD: 29
+      I-ST: 30
+      I-NBHD: 31
+      I-CNTY: 32
+      B-STAT: 33
+      L-STAT: 34
+      B-OTHR: 35
+      I-OTHR: 36
+      L-OTHR: 37
+      U-OTHR: 38
+      U-HPOI: 39
+      I-STAT: 40
+      I-CTRY: 41
+      I-NPOI: 42
+      I-ISL: 43
+      B-CONT: 44
+      L-CONT: 45
+      I-DIST: 46
+      U-ST: 47
+    type: "token_classification"
+
+  lmr_typeless:
+    data_path: "lmr_base_dir"
+    labels:
+      O: 0
+      B-LOC: 1
+      L-LOC: 2
+      I-LOC: 3
+      U-LOC: 4
+    type: "token_classification"
+
+tasks:
+  # Image-Only Tasks
+  image_informative:
+    template: "informative"
+    type: "image_only"
+
+  image_disaster_type:
+    template: "disaster_type"
+    type: "image_only"
+
+  image_humanitarian:
+    template: "humanitarian"
+    type: "image_only"
+
+  image_damage:
+    template: "damage"
+    type: "image_only"
+
+  # Text-Only Tasks
+  text_informative:
+    template: "informative"
+    type: "text_only"
+
+  text_disaster_type:
+    template: "disaster_type"
+    type: "text_only"
+
+  text_humanitarian:
+    template: "humanitarian"
+    type: "text_only"
+
+  text_damage:
+    template: "damage"
+    type: "text_only"
+
+  # Multimodal Tasks
+  multimodal_resnet_concat_informative:
+    template: "informative"
+    type: "multimodal"
+    image_model: "resnet"
+    fusion: "concat"
+
+  multimodal_resnet_cross_attention_informative:
+    template: "informative"
+    type: "multimodal"
+    image_model: "resnet"
+    fusion: "cross_attention"
+
+  multimodal_vit_concat_informative:
+    template: "informative"
+    type: "multimodal"
+    image_model: "vit"
+    fusion: "concat"
+
+  multimodal_vit_cross_attention_informative:
+    template: "informative"
+    type: "multimodal"
+    image_model: "vit"
+    fusion: "cross_attention"
+
+  # LMR Tasks
+  lmr_cross_domain_typebased:
+    template: "lmr_typebased"
+    strategy: "cross_domain"
+
+  lmr_in_domain_typebased:
+    template: "lmr_typebased"
+    strategy: "in_domain"
+
+  lmr_cross_domain_typeless:
+    template: "lmr_typeless"
+    strategy: "cross_domain"
+
+  lmr_in_domain_typeless:
+    template: "lmr_typeless"
+    strategy: "in_domain"

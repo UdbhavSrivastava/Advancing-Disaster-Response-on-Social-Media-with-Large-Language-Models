@@ -1,0 +1,33 @@
+# configs/models.yaml
+base_models:
+  llama:
+    model_id: 'meta-llama/Llama-2-7b-hf'
+    max_length: 128
+    peft_config:
+      r: 2500
+      lora_alpha: 600
+      lora_dropout: 0.1
+      task_type: 'SEQ_CLS'
+
+  llama_token_cls:
+    model_id: 'meta-llama/Llama-2-7b-hf'
+    max_length: 128
+    peft_config:
+      r: 12
+      lora_alpha: 32
+      lora_dropout: 0.1
+      task_type: 'TOKEN_CLS'
+  
+  resnet:
+    model_id: "microsoft/resnet-101"
+  
+  vit:
+    model_id: "google/vit-base-patch16-224"
+
+fusion_models:
+  multimodal_concat:
+    fusion_hidden_dim: 1024
+  
+  multimodal_cross_attention:
+    fusion_dim: 1024
+    num_heads: 8
