@@ -23,7 +23,7 @@ def run_task(task_config, model_config, training_config):
         preprocess_func = lambda examples: preprocess_text(examples, tokenizer, model_config[model_name]['max_length'])
     
     # Load and preprocess data
-    dataset_dict = load_data(task_config["name"])
+    dataset_dict = load_data(task_config)
     tokenized_ds = dataset_dict.map(preprocess_func, batched=True)
 
     # Set up and run trainer
@@ -41,4 +41,6 @@ def run_task(task_config, model_config, training_config):
     trainer.train()
     metrics = trainer.evaluate(tokenized_ds["test"])
     trainer.log_metrics("eval", metrics)
+    trainer.save_metrics("test", metrics)
     print("Test metrics:", metrics)
+    return metrics

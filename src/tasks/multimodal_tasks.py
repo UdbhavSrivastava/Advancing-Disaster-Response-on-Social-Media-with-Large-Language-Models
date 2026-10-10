@@ -7,7 +7,7 @@ from transformers import TrainingArguments, Trainer
 
 def run_task(task_config, model_config, training_config):
     # Load data
-    dataset_dict = load_data(task_config["name"])
+    dataset_dict = load_data(task_config)
 
     # Load base models
     tokenizer, text_model = load_llama_model(model_config['llama'], len(task_config['labels']), task_type='sequence_classification')
@@ -55,4 +55,6 @@ def run_task(task_config, model_config, training_config):
     trainer.train()
     metrics = trainer.evaluate(tokenized_ds["test"])
     trainer.log_metrics("eval", metrics)
+    trainer.save_metrics("test", metrics)
     print("Test metrics:", metrics)
+    return metrics

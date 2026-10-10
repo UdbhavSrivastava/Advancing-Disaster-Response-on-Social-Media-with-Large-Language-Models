@@ -106,21 +106,45 @@ task_templates:
 
 tasks:
   # Image-Only Tasks
-  image_informative:
+  image_resnet_informative:
     template: "informative"
     type: "image_only"
+    image_model: "resnet"
 
-  image_disaster_type:
+  image_vit_informative:
+    template: "informative"
+    type: "image_only"
+    image_model: "vit"
+
+  image_resnet_disaster_type:
     template: "disaster_type"
     type: "image_only"
+    image_model: "resnet"
 
-  image_humanitarian:
+  image_vit_disaster_type:
+    template: "disaster_type"
+    type: "image_only"
+    image_model: "vit"
+
+  image_resnet_humanitarian:
     template: "humanitarian"
     type: "image_only"
+    image_model: "resnet"
 
-  image_damage:
+  image_vit_humanitarian:
+    template: "humanitarian"
+    type: "image_only"
+    image_model: "vit"
+
+  image_resnet_damage:
     template: "damage"
     type: "image_only"
+    image_model: "resnet"
+
+  image_vit_damage:
+    template: "damage"
+    type: "image_only"
+    image_model: "vit"
 
   # Text-Only Tasks
   text_informative:
@@ -160,6 +184,78 @@ tasks:
 
   multimodal_vit_cross_attention_informative:
     template: "informative"
+    type: "multimodal"
+    image_model: "vit"
+    fusion: "cross_attention"
+
+  multimodal_resnet_concat_disaster_type:
+    template: "disaster_type"
+    type: "multimodal"
+    image_model: "resnet"
+    fusion: "concat"
+
+  multimodal_resnet_cross_attention_disaster_type:
+    template: "disaster_type"
+    type: "multimodal"
+    image_model: "resnet"
+    fusion: "cross_attention"
+
+  multimodal_vit_concat_disaster_type:
+    template: "disaster_type"
+    type: "multimodal"
+    image_model: "vit"
+    fusion: "concat"
+
+  multimodal_vit_cross_attention_disaster_type:
+    template: "disaster_type"
+    type: "multimodal"
+    image_model: "vit"
+    fusion: "cross_attention"
+
+  multimodal_resnet_concat_humanitarian:
+    template: "humanitarian"
+    type: "multimodal"
+    image_model: "resnet"
+    fusion: "concat"
+
+  multimodal_resnet_cross_attention_humanitarian:
+    template: "humanitarian"
+    type: "multimodal"
+    image_model: "resnet"
+    fusion: "cross_attention"
+
+  multimodal_vit_concat_humanitarian:
+    template: "humanitarian"
+    type: "multimodal"
+    image_model: "vit"
+    fusion: "concat"
+
+  multimodal_vit_cross_attention_humanitarian:
+    template: "humanitarian"
+    type: "multimodal"
+    image_model: "vit"
+    fusion: "cross_attention"
+
+  multimodal_resnet_concat_damage:
+    template: "damage"
+    type: "multimodal"
+    image_model: "resnet"
+    fusion: "concat"
+
+  multimodal_resnet_cross_attention_damage:
+    template: "damage"
+    type: "multimodal"
+    image_model: "resnet"
+    fusion: "cross_attention"
+
+  multimodal_vit_concat_damage:
+    template: "damage"
+    type: "multimodal"
+    image_model: "vit"
+    fusion: "concat"
+
+  multimodal_vit_cross_attention_damage:
+    template: "damage"
     type: "multimodal"
     image_model: "vit"
     fusion: "cross_attention"

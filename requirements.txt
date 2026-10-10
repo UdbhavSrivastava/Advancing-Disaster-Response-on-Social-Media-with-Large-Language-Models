@@ -1,8 +1,10 @@
 datasets
 evaluate
-load
 numpy
-os
+pandas
 peft
+Pillow
+PyYAML
 torch
+torchvision
 transformers==4.32.1

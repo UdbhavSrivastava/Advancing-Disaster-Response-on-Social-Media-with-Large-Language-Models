@@ -1,12 +1,11 @@
 # src/tasks/run_image_tasks.py
 from src.data.base_dataloader import load_data, preprocess_images_resnet, preprocess_images_vit
-from src.models.base_models import load_image_model_for_classification
 from src.utils.metrics import compute_metrics_classification
 from transformers import TrainingArguments, Trainer, default_data_collator, ResNetForImageClassification, ViTForImageClassification
 
 def run_task(task_config, model_config, training_config):
     # Load data
-    dataset_dict = load_data(task_config["name"])
+    dataset_dict = load_data(task_config)
     
     # Determine model and preprocessing function
     image_model_type = task_config['image_model']
@@ -45,4 +44,6 @@ def run_task(task_config, model_config, training_config):
     trainer.train()
     metrics = trainer.evaluate(processed_ds["test"])
     trainer.log_metrics("eval", metrics)
+    trainer.save_metrics("test", metrics)
     print("Test metrics:", metrics)
+    return metrics
